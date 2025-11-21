@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import AppImage from "../../_common/AppImage";
 
+// Slide data
 const sliderContent = [
   {
     id: 1,
@@ -9,12 +10,12 @@ const sliderContent = [
       "Supercharge your business communication & connect with customers using AI, automation, & multi-channel messaging.",
     image: "/icons/slide-1 4.svg",
     caption:
-      "UnifiedBeez is designed to help any business simplify and supercharge customer communication through AI, automation, and multi-channel messaging. Think of it as your business's AI-powered communication hub.",
+      "UnifiedBeez helps businesses simplify and supercharge customer communication through AI, automation, and multi-channel messaging.",
     testimonial: {
       name: "Ariana Grande",
       tag: "Visual Designer, Google",
       profileImage: "https://github.com/shadcn.png",
-      text: "Unifiedbeez has transformed the way our team communicates. The sheer range of components and the seamless integration of the communication channels into our workflow have been game-changers. It's like having a toolkit filled with magic that accelerates our communications without compromising on quality.",
+      text: "Unifiedbeez has transformed the way our team communicates. The sheer range of components and the seamless integration of the communication channels into our workflow have been game-changers.",
     },
   },
   {
@@ -23,12 +24,12 @@ const sliderContent = [
       "Supercharge your business communication & connect with customers using AI, automation, & multi-channel messaging.",
     image: "/icons/slide-2 1.svg",
     caption:
-      "UnifiedBeez is designed to help any business simplify and supercharge customer communication through AI, automation, and multi-channel messaging. Think of it as your business's AI-powered communication hub.",
+      "UnifiedBeez helps businesses simplify and supercharge customer communication through AI, automation, and multi-channel messaging.",
     testimonial: {
       name: "Ariana Grande",
       tag: "Visual Designer, Google",
       profileImage: "https://github.com/shadcn.png",
-      text: "Unifiedbeez has transformed the way our team communicates. The sheer range of components and the seamless integration of the communication channels into our workflow have been game-changers. It's like having a toolkit filled with magic that accelerates our communications without compromising on quality.",
+      text: "Unifiedbeez has transformed the way our team communicates. The sheer range of components and the seamless integration of the communication channels into our workflow have been game-changers.",
     },
   },
   {
@@ -37,12 +38,12 @@ const sliderContent = [
       "Supercharge your business communication & connect with customers using AI, automation, & multi-channel messaging.",
     image: "/icons/slide-3 1.svg",
     caption:
-      "UnifiedBeez is designed to help any business simplify and supercharge customer communication through AI, automation, and multi-channel messaging. Think of it as your business's AI-powered communication hub.",
+      "UnifiedBeez helps businesses simplify and supercharge customer communication through AI, automation, and multi-channel messaging.",
     testimonial: {
       name: "Ariana Grande",
       tag: "Visual Designer, Google",
       profileImage: "https://github.com/shadcn.png",
-      text: "Unifiedbeez has transformed the way our team communicates. The sheer range of components and the seamless integration of the communication channels into our workflow have been game-changers. It's like having a toolkit filled with magic that accelerates our communications without compromising on quality.",
+      text: "Unifiedbeez has transformed the way our team communicates. The sheer range of components and the seamless integration of the communication channels into our workflow have been game-changers.",
     },
   },
   {
@@ -51,12 +52,12 @@ const sliderContent = [
       "Supercharge your business communication & connect with customers using AI, automation, & multi-channel messaging.",
     image: "/icons/slide-4 1.svg",
     caption:
-      "UnifiedBeez is designed to help any business simplify and supercharge customer communication through AI, automation, and multi-channel messaging. Think of it as your business's AI-powered communication hub.",
+      "UnifiedBeez helps businesses simplify and supercharge customer communication through AI, automation, and multi-channel messaging.",
     testimonial: {
       name: "Ariana Grande",
       tag: "Visual Designer, Google",
       profileImage: "https://github.com/shadcn.png",
-      text: "Unifiedbeez has transformed the way our team communicates. The sheer range of components and the seamless integration of the communication channels into our workflow have been game-changers. It's like having a toolkit filled with magic that accelerates our communications without compromising on quality.",
+      text: "Unifiedbeez has transformed the way our team communicates. The sheer range of components and the seamless integration of the communication channels into our workflow have been game-changers.",
     },
   },
 ];
@@ -64,11 +65,10 @@ const sliderContent = [
 export function LeftSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Auto-slide effect
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % sliderContent.length);
-    }, 5000); // change slide every 5 seconds
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -76,14 +76,16 @@ export function LeftSection() {
   const item = sliderContent[currentSlide];
 
   return (
-    <div className="w-full h-full md:w-1/2 bg-[url('/images/background.png')] bg-cover relative bg-center text-white p-8 md:p-20 hidden md:flex flex-col justify-between min-h-screen transition-all duration-500">
+    <div className="hidden lg:flex w-full lg:w-1/2 h-full bg-[url('/images/background.png')] bg-cover relative bg-center text-white p-8 lg:p-20 flex-col justify-between min-h-screen transition-all duration-500">
+      {/* Background image overlay */}
       <AppImage
         src={item.image}
-        className="size-auto absolute top-0 bottom-0 self-center opacity-10"
+        className="absolute top-0 left-1/2 -translate-x-1/2 opacity-10 w-1/2 lg:w-auto"
         alt=""
       />
-      {/* indicator */}
-      <div className="w-full justify-between flex gap-2 items-center py-5">
+
+      {/* Slide indicators */}
+      <div className="w-full flex justify-between gap-2 items-center py-5">
         {sliderContent.map((_, idx) => (
           <div
             key={idx}
@@ -94,27 +96,33 @@ export function LeftSection() {
         ))}
       </div>
 
-      <div className="space-y-4 flex-1 flex-col flex pt-20">
+      {/* Slide content */}
+      <div className="space-y-4 flex-1 flex flex-col pt-20">
         <div className="flex-1">
-          <h2 className="text-lg md:text-2xl font-semibold mb-6">
+          <h2 className="text-lg lg:text-4xl font-semibold mb-6">
             {item.title}
           </h2>
-          <p className="text-blue-100">{item.caption}</p>
+          <p className="text-blue-100 text-sm lg:text-base">{item.caption}</p>
         </div>
 
-        <div className="bg-white p-6 rounded-xl">
-          <p className="text-[#545859] mb-4">{item.testimonial.text}</p>
+        {/* Testimonial card */}
+        <div className="bg-white p-6 rounded-xl shadow-md">
+          <p className="text-[#545859] mb-4 text-sm lg:text-base">
+            {item.testimonial.text}
+          </p>
           <div className="flex items-center gap-3">
             <AppImage
               alt="profile"
-              className="rounded-full size-10"
+              className="rounded-full w-10 h-10 lg:w-12 lg:h-12"
               src={item.testimonial.profileImage}
             />
             <div>
-              <p className="font-semibold text-[#053D27]">
+              <p className="font-semibold text-[#053D27] text-sm lg:text-base">
                 {item.testimonial.name}
               </p>
-              <p className="text-sm text-[#545859]">{item.testimonial.tag}</p>
+              <p className="text-xs lg:text-sm text-[#545859]">
+                {item.testimonial.tag}
+              </p>
             </div>
           </div>
         </div>

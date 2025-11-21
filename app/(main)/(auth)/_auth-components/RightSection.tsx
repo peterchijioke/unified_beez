@@ -9,15 +9,17 @@ export default function RightSection({ pinIcons = false }) {
   const [isSignUp, setIsSignup] = useState(true);
 
   return (
-    <div className="flex flex-col md:w-1/2 w-full min-h-screen">
-      <div className="flex-1 overflow-auto flex flex-col items-center pt-8 md:px-0">
+    <div className="flex flex-col w-full md:w-full lg:w-1/2 min-h-screen">
+      {/* Main content area */}
+      <div className="flex-1 flex flex-col items-center justify-center overflow-auto pt-8 px-4 md:px-8 lg:px-0">
         <div
           className="
-            w-full h-fit md:mx-auto max-w-full md:max-w-xl
+            w-full h-fit max-w-full md:max-w-full lg:max-w-xl
             bg-inherit md:bg-gradient-to-b md:border md:border-[#D0D5DD]
-            from-[#E6FAF2] to-[#E3CF9B] md:rounded-3xl p-8 md:mb-4
+            from-[#E6FAF2] to-[#E3CF9B] md:rounded-3xl p-6 md:p-8 lg:p-8 mb-4
           "
         >
+          {/* Logo */}
           <div className="flex justify-center mb-8">
             <AppImage
               alt="logo"
@@ -26,10 +28,11 @@ export default function RightSection({ pinIcons = false }) {
             />
           </div>
 
+          {/* Toggle Buttons */}
           <div className="flex mb-8 bg-[#F6F6F6] rounded-md p-2">
             <button
               onClick={() => setIsSignup(true)}
-              className={`flex-1 py-2 px-4 text-nowrap rounded-md font-medium ${
+              className={`flex-1 py-2 px-4 text-nowrap rounded-md font-medium transition ${
                 isSignUp ? "bg-white text-gray-800 shadow" : "text-gray-400"
               }`}
             >
@@ -37,7 +40,7 @@ export default function RightSection({ pinIcons = false }) {
             </button>
             <button
               onClick={() => setIsSignup(false)}
-              className={`flex-1 py-2 px-4 text-nowrap rounded-md font-medium ${
+              className={`flex-1 py-2 px-4 text-nowrap rounded-md font-medium transition ${
                 !isSignUp ? "bg-white text-gray-800 shadow" : "text-gray-400"
               }`}
             >
@@ -45,16 +48,18 @@ export default function RightSection({ pinIcons = false }) {
             </button>
           </div>
 
+          {/* Forms */}
           {isSignUp ? <SignupForm /> : <SigninForm />}
         </div>
       </div>
 
-      <div className="w-full flex flex-wrap items-center justify-center gap-3 p-5">
+      {/* Social icons at bottom */}
+      <div className="w-full flex flex-wrap items-center justify-center gap-3 p-5 md:p-8 border-t border-gray-200">
         {socialIcons.map((item, index) => (
           <AppImage
             key={index}
             alt=""
-            className="size-10 md:size-auto"
+            className="w-10 h-10 md:w-12 md:h-12 lg:w-auto lg:h-auto"
             src={item}
           />
         ))}
@@ -63,6 +68,7 @@ export default function RightSection({ pinIcons = false }) {
   );
 }
 
+// Social icons list
 const socialIcons = [
   "/icons/whatapp.svg",
   "/icons/facebook.svg",

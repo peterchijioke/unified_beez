@@ -39,7 +39,7 @@ export default function AppInput({
           type={isPassword && showPassword ? "text" : type}
           placeholder={placeholder}
           {...register}
-          className={`w-full px-4 py-3 border-2 border-primary rounded-xl 
+          className={`w-full px-4 py-3 border-2 h-12 border-primary rounded-xl 
             ${icon && !rightIcon ? "pl-10" : icon && rightIcon ? "pr-10" : ""} 
             placeholder:text-[#545859] text-[#545859] 
             focus:ring-4 focus:ring-[#053D2733] focus:border-[#053D2733] 

@@ -1,15 +1,20 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import SignUpComponent from "../SignUpComponent";
 import { SigninFormData, signinSchema } from "@/app/_schema/signinSchema";
 import AppInput from "@/app/(main)/_common/AppInput";
 import Link from "next/link";
+import AppImage from "@/app/(main)/_common/AppImage";
 
 export default function SigninForm() {
-  // include remember in the form type so it's typed even if your schema doesn't have it
+  // scroll to top on mount
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   type FormValues = SigninFormData & { remember?: boolean };
 
   const {
@@ -28,10 +33,17 @@ export default function SigninForm() {
   };
 
   return (
-    <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="space-y-5 w-full max-w-md mx-auto"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <AppInput
         label="Email"
         type="email"
+        rightIcon
+        icon={
+          <AppImage src={"/icons/Help.svg"} className="size-4" alt="icon" />
+        }
         placeholder="your@email.com"
         register={register("email")}
         error={errors.email?.message as unknown as string}

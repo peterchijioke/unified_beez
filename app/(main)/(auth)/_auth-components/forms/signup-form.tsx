@@ -3,10 +3,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Ticket, X } from "lucide-react";
+import { Check, Ticket, X } from "lucide-react";
 import SignUpComponent from "../SignUpComponent";
 import { SignupFormData, signupSchema } from "@/app/_schema/signupSchema";
 import AppInput from "@/app/(main)/_common/AppInput";
+import AppImage from "@/app/(main)/_common/AppImage";
 
 export default function SignupForm() {
   const {
@@ -37,6 +38,10 @@ export default function SignupForm() {
         label="Email"
         placeholder="your@email.com"
         type="email"
+        rightIcon
+        icon={
+          <AppImage src={"/icons/Help.svg"} className="size-4" alt="icon" />
+        }
         register={register("email")}
         error={errors.email?.message}
       />
@@ -68,11 +73,11 @@ export default function SignupForm() {
           <div
             key={idx}
             className={`flex items-center ${
-              req.valid ? "text-teal-600" : "text-gray-400"
+              req.valid ? "text-primary" : "text-gray-400"
             }`}
           >
             <span className="mr-2">
-              {req.valid ? <Ticket /> : <X size={16} />}
+              {req.valid ? <Check size={16} /> : <X size={16} />}
             </span>
             <span>{req.label}</span>
           </div>
