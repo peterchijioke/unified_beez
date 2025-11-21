@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import AppImage from "../../_common/AppImage";
-import SignupForm from "../../_common/signup-form";
-import SigninForm from "../../_common/signin-form";
+import SignupForm from "./forms/signup-form";
+import SigninForm from "./forms/signin-form";
 
 const uploadedScreenshot = "/mnt/data/iPhone-13-PRO-localhost.png";
 

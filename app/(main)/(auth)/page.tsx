@@ -1,5 +1,5 @@
-import { LeftSection } from "./_auth-componets/LeftSection";
-import RightSection from "./_auth-componets/RightSection";
+import { LeftSection } from "./_auth-components/LeftSection";
+import RightSection from "./_auth-components/RightSection";
 
 export default function AuthPage() {
   return (

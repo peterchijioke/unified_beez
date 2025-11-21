@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff, Ticket, X } from "lucide-react";
-import SignUpComponent from "../(auth)/_auth-componets/SignUpComponent";
+import SignUpComponent from "../SignUpComponent";
 import { SignupFormData, signupSchema } from "@/app/_schema/signupSchema";
 
 export default function SignupForm() {

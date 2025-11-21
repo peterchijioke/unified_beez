@@ -4,24 +4,23 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff, Ticket, X } from "lucide-react";
-import SignUpComponent from "../(auth)/_auth-componets/SignUpComponent";
-import { SignupFormData, signupSchema } from "@/app/_schema/signupSchema";
+import SignUpComponent from "../SignUpComponent";
+import { SigninFormData, signinSchema } from "@/app/_schema/signinSchema";
 
 export default function SigninForm() {
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<SignupFormData>({
-    resolver: zodResolver(signupSchema),
+  } = useForm<SigninFormData>({
+    resolver: zodResolver(signinSchema),
     mode: "onChange",
   });
 
-  const onSubmit = (data: SignupFormData) => {
+  const onSubmit = (data: SigninFormData) => {
     console.log("Form submitted:", data);
   };
 
