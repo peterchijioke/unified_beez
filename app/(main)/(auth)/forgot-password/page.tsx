@@ -32,7 +32,7 @@ export default function ForgotPasswordPage() {
 
             <ForgotPasswordForm />
 
-            <div className="max-w-xl mx-auto flex md:hidden pb-5 items-center justify-center gap-3 flex-wrap">
+            <div className="max-w-xl mx-auto mt-12 flex md:hidden pb-5 items-center justify-center gap-3 flex-wrap">
               {socialIcons.map((item, index) => (
                 <AppImage key={index} alt="" className="size-10" src={item} />
               ))}

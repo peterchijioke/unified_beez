@@ -9,21 +9,33 @@ import {
   forgotPasswordFormData,
   forgotPasswordSchema,
 } from "@/app/_schema/forgrtPasswordSchema";
+import { useRouter } from "next/navigation";
 
 export default function ForgotPasswordForm() {
+  const router = useRouter();
+
   type FormValues = forgotPasswordFormData & { remember?: boolean };
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     resolver: zodResolver(forgotPasswordSchema as any),
     mode: "onChange",
     defaultValues: { remember: false },
   });
 
-  const onSubmit = (data: FormValues) => {};
+  const onSubmit = async (data: FormValues) => {
+    console.log("Submitted email:", data.email);
+    // TODO: Call your API to send password reset email
+    // Example: await api.sendResetEmail(data.email);
+  };
+
+  const handleResend = () => {
+    console.log("Resend code clicked");
+    // TODO: Call API to resend the code
+  };
 
   return (
     <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
@@ -32,29 +44,37 @@ export default function ForgotPasswordForm() {
         type="email"
         rightIcon
         icon={
-          <AppImage src={"/icons/Help.svg"} className=" size-4 " alt="icon" />
+          <AppImage src={"/icons/Help.svg"} className="size-4" alt="icon" />
         }
         placeholder="your@email.com"
         register={register("email")}
-        error={errors.email?.message as unknown as string}
+        error={errors.email?.message || ""}
       />
 
-      <div className=" w-full flex items-center justify-center ">
-        <span className=" text-sm text-[#545859] font-normal">
-          Didn't get a code? Click to resend.
-        </span>
-      </div>
-
-      <div className=" gap-4 grid md:grid-cols-2 grid-cols-1  pt-6 ">
+      <div className="w-full flex items-center justify-center">
+        <span className=" text-sm text-primary"> Didn't get a code?</span>
         <button
           type="button"
-          className=" flex-1 rounded-md border border-gray-200 bg-white h-12 text-base text-gray-700 font-bold   hover:bg-gray-50 transition focus:outline-none"
+          onClick={handleResend}
+          className="text-sm cursor-pointer  text-primary font-normal underline hover:text-gray-700 transition"
+        >
+          Click to resend.
+        </button>
+      </div>
+
+      <div className="gap-4 grid md:grid-cols-2 grid-cols-1 pt-6">
+        <button
+          type="button"
+          onClick={() => router.back()}
+          className="flex-1 rounded-md border border-gray-200 bg-white h-12 text-base text-gray-700 font-bold hover:bg-gray-50 transition focus:outline-none"
         >
           Go back
         </button>
+
         <button
-          type="button"
-          className="min-w-[260px] rounded-md flex-1 bg-primary text-white font-bold text-base h-12 shadow-sm hover:bg-primary transition focus:outline-none"
+          type="submit"
+          disabled={isSubmitting}
+          className="min-w-[260px] flex-1 rounded-md bg-primary text-white font-bold text-base h-12 shadow-sm hover:bg-primary transition focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Continue
         </button>
