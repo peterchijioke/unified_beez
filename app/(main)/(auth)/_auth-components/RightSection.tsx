@@ -1,20 +1,19 @@
 "use client";
+
 import { useState } from "react";
 import AppImage from "../../_common/AppImage";
 import SignupForm from "./forms/signup-form";
 import SigninForm from "./forms/signin-form";
 
-const uploadedScreenshot = "/mnt/data/iPhone-13-PRO-localhost.png";
-
 export default function RightSection({ pinIcons = false }) {
   const [isSignUp, setIsSignup] = useState(true);
 
   return (
-    <div className="h-dvh overflow-auto md:w-1/2 w-full flex md:justify-center justify-start items-center flex-col pt-8">
-      <div className="flex flex-col h-full w-full items-center justify-center">
+    <div className="flex flex-col md:w-1/2 w-full min-h-screen">
+      <div className="flex-1 overflow-auto flex flex-col items-center pt-8 md:px-0">
         <div
           className="
-            w-full h-fit md:mx-auto  max-w-full md:max-w-xl
+            w-full h-fit md:mx-auto max-w-full md:max-w-xl
             bg-inherit md:bg-gradient-to-b md:border md:border-[#D0D5DD]
             from-[#E6FAF2] to-[#E3CF9B] md:rounded-3xl p-8 md:mb-4
           "
@@ -30,7 +29,7 @@ export default function RightSection({ pinIcons = false }) {
           <div className="flex mb-8 bg-[#F6F6F6] rounded-md p-2">
             <button
               onClick={() => setIsSignup(true)}
-              className={`flex-1 py-2 px-4 rounded-md font-medium ${
+              className={`flex-1 py-2 px-4 text-nowrap rounded-md font-medium ${
                 isSignUp ? "bg-white text-gray-800 shadow" : "text-gray-400"
               }`}
             >
@@ -38,7 +37,7 @@ export default function RightSection({ pinIcons = false }) {
             </button>
             <button
               onClick={() => setIsSignup(false)}
-              className={`flex-1 py-2 px-4 rounded-md font-medium ${
+              className={`flex-1 py-2 px-4 text-nowrap rounded-md font-medium ${
                 !isSignUp ? "bg-white text-gray-800 shadow" : "text-gray-400"
               }`}
             >
@@ -47,16 +46,17 @@ export default function RightSection({ pinIcons = false }) {
           </div>
 
           {isSignUp ? <SignupForm /> : <SigninForm />}
-          <div className="max-w-xl mx-auto flex md:hidden pb-5 items-center justify-center gap-3 flex-wrap">
-            {socialIcons.map((item, index) => (
-              <AppImage key={index} alt="" className="size-10" src={item} />
-            ))}
-          </div>
         </div>
       </div>
-      <div className="w-full mx-auto hidden md:flex pb-5 items-center justify-center gap-3">
+
+      <div className="w-full flex flex-wrap items-center justify-center gap-3 p-5">
         {socialIcons.map((item, index) => (
-          <AppImage key={index} alt="" className="size-auto" src={item} />
+          <AppImage
+            key={index}
+            alt=""
+            className="size-10 md:size-auto"
+            src={item}
+          />
         ))}
       </div>
     </div>

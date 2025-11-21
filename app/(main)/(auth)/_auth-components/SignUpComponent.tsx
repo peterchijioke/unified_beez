@@ -2,7 +2,7 @@ import React from "react";
 import AppImage from "../../_common/AppImage";
 
 export default function SignUpComponent({
-  orWith = "or sign up with<",
+  orWith = "or sign up with",
 }: {
   orWith?: string;
 }) {

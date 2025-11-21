@@ -52,7 +52,7 @@ export default function ForgotPasswordForm() {
       />
 
       <div className="w-full flex items-center justify-center">
-        <span className=" text-sm text-primary"> Didn't get a code?</span>
+        <span className=" text-sm text-primary mr-2"> Didn't get a code?</span>
         <button
           type="button"
           onClick={handleResend}

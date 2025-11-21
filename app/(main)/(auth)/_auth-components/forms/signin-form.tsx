@@ -61,7 +61,7 @@ export default function SigninForm() {
 
           <Link
             href="/forgot-password"
-            className="text-sm font-medium underline underline-offset-4 decoration-2 decoration-[#1f5f3d] text-[#1f5f3d] hover:opacity-90"
+            className="text-sm font-medium underline cursor-pointer underline-offset-4 decoration-2 decoration-primary text-primary hover:opacity-90"
           >
             Forgot password?
           </Link>
