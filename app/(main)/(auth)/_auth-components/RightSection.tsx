@@ -9,14 +9,14 @@ export default function RightSection({ pinIcons = false }) {
   const [isSignUp, setIsSignup] = useState(true);
 
   return (
-    <div className="flex flex-col w-full md:w-full lg:w-1/2 min-h-screen">
-      {/* Main content area */}
-      <div className="flex-1 flex flex-col items-center justify-center overflow-auto pt-8 px-4 md:px-8 lg:px-0">
+    <div className="flex flex-col w-full lg:w-1/2 min-h-screen overflow-auto">
+      {/* Form container */}
+      <div className="flex flex-col md:flex-1 items-center justify-center w-full pt-8 px-4 md:px-8 lg:px-12">
         <div
           className="
-            w-full h-fit max-w-full md:max-w-full lg:max-w-xl
+            w-full max-w-md md:max-w-full lg:max-w-xl
             bg-inherit md:bg-gradient-to-b md:border md:border-[#D0D5DD]
-            from-[#E6FAF2] to-[#E3CF9B] md:rounded-3xl p-6 md:p-8 lg:p-8 mb-4
+            from-[#E6FAF2] to-[#E3CF9B] md:rounded-3xl p-6 md:p-8 mb-4
           "
         >
           {/* Logo */}
@@ -54,7 +54,7 @@ export default function RightSection({ pinIcons = false }) {
       </div>
 
       {/* Social icons at bottom */}
-      <div className="w-full flex flex-wrap items-center justify-center gap-3 p-5 md:p-8 border-t border-gray-200">
+      <div className="w-full flex flex-wrap items-end  justify-center gap-3 p-5 md:p-8">
         {socialIcons.map((item, index) => (
           <AppImage
             key={index}
