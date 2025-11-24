@@ -28,6 +28,7 @@ export default function ForgotPasswordForm() {
 
   const onSubmit = async (data: FormValues) => {
     console.log("Submitted email:", data.email);
+    router.push("/email-confirmation");
     // TODO: Call your API to send password reset email
     // Example: await api.sendResetEmail(data.email);
   };
