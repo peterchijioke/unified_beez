@@ -29,7 +29,7 @@ export function ProfileForm() {
   } = methods;
 
   const onSubmit = (data: ProfileFormValues) => {
-    console.log(data);
+    console.log(data, "===========DATA");
 
     route.push("/step-one-welcome");
   };
@@ -82,13 +82,13 @@ export function ProfileForm() {
         <div className="flex w-full gap-3 pt-5">
           <button
             type="button"
-            className="px-4 text-[#0B1012B2] h-12 py-2 bg-white flex-1 rounded-xl"
+            className="px-4 text-[#0B1012B2] cursor-pointer hover:shadow h-12 py-2 bg-white flex-1 rounded-xl"
           >
             Go back
           </button>
           <button
             type="submit"
-            className="px-4 py-2 bg-primary h-12 flex-1 text-white rounded-xl"
+            className="px-4 py-2 bg-primary cursor-pointer hover:shadow h-12 flex-1 text-white rounded-xl"
           >
             Continue
           </button>
