@@ -11,16 +11,8 @@ export default function Modal({
 }) {
   if (!open) return null;
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/40 z-50">
-      <div className="bg-white rounded-xl p-6 shadow-xl min-w-[300px] max-w-full">
-        {children}
-        <button
-          className="mt-4 w-full bg-primary text-white py-2 rounded"
-          onClick={onClose}
-        >
-          Close
-        </button>
-      </div>
+    <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-50">
+      <div className=" min-w-[300px] max-w-full">{children}</div>
     </div>
   );
 }
