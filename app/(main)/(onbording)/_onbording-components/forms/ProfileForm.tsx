@@ -33,11 +33,15 @@ export function ProfileForm() {
 
     route.push("/step-one-welcome");
   };
+  const onError = (data: any) => {
+    console.log(data, "===========DATA");
+  };
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+      <form onSubmit={handleSubmit(onSubmit, onError)} className="w-full">
         <ProfileImageUploader />
+        <span className="text-sm text-red-400">{errors.image?.message}</span>
 
         <div className=" flex flex-col gap-4">
           <AppInput
