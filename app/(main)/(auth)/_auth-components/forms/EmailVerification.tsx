@@ -77,7 +77,6 @@ export default function EmailVerification() {
       setError(true);
     } else {
       setError(false);
-      route.push("/basic-account-setup");
       alert("Code verified successfully!");
     }
   };

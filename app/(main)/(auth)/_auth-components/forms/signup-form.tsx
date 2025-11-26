@@ -8,8 +8,10 @@ import SignUpComponent from "../SignUpComponent";
 import { SignupFormData, signupSchema } from "@/app/_schema/signupSchema";
 import AppInput from "@/app/(main)/_common/AppInput";
 import AppImage from "@/app/(main)/_common/AppImage";
+import { useRouter } from "next/navigation";
 
 export default function SignupForm() {
+  const route = useRouter();
   const {
     register,
     handleSubmit,
@@ -30,6 +32,7 @@ export default function SignupForm() {
 
   const onSubmit = (data: SignupFormData) => {
     console.log("Form submitted:", data);
+    route.push("/basic-account-setup");
   };
 
   return (

@@ -1,12 +1,16 @@
 import React from "react";
 import { SetupHeader } from "../../_common/SetupHeader";
 import AppImage from "../../_common/AppImage";
+import { useRouter } from "next/navigation";
 
 type Props = {
   close: () => void;
 };
 
 export default function ModalContent({ close }: Props) {
+  const route = useRouter();
+
+  const goTo = () => route.push("/manual-onboarding");
   return (
     <div
       className="
@@ -22,7 +26,10 @@ export default function ModalContent({ close }: Props) {
       />
 
       <div className=" w-full gap-3 flex flex-col ">
-        <button className=" w-full h-12 cursor-pointer hover:shadow rounded-lg text-base gap-2 bg-primary font-semibold items-center justify-center flex">
+        <button
+          onClick={goTo}
+          className=" w-full h-12 cursor-pointer hover:shadow rounded-lg text-base gap-2 bg-primary font-semibold items-center justify-center flex"
+        >
           Start Setup
         </button>
         <button className=" w-full h-12 bg-[#FAB4031A] cursor-pointer hover:shadow rounded-lg gap-2 font-semibold text-primary text-base items-center justify-center flex">

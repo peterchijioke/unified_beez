@@ -31,7 +31,7 @@ export default function ActionButtons() {
           />
         </button>
         <button className=" w-full h-12 bg-white border border-[#D0D5DD] mt-2 cursor-pointer hover:shadow rounded-lg gap-2 font-semibold text-[#344054] text-base items-center justify-center flex">
-          Go back
+          Skip for now
         </button>
       </div>
       <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
