@@ -1,22 +1,10 @@
-import { useState } from "react";
 import Tab from "./Tab";
 
 export function StepList() {
-  const [parent, setParent] = useState(0);
-  const [childList, setChildList] = useState("Account Summary & Plan");
-
   return (
     <div className="space-y-2 min-h-[80dvh] overflow-y-scroll">
       {steps.map((s, i) => (
-        <Tab
-          key={i}
-          data={s}
-          i={i}
-          parent={parent}
-          setParent={setParent}
-          childList={childList}
-          setChildList={setChildList}
-        />
+        <Tab key={i} data={s} i={i} />
       ))}
     </div>
   );
@@ -25,7 +13,7 @@ export function StepList() {
 const steps = [
   {
     title: "Step 01 - Account Summary & Plan",
-    children: ["Account Summary & Plan"], // Fixed: changed 'child' to 'children'
+    children: ["Account Summary & Plan"],
   },
   {
     title: "Step 02 - User Type Detection & Info",
